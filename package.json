@@ -1,0 +1,37 @@
+{
+  "name": "soccernetjs",
+  "version": "1.0.0",
+  "description": "used for NPM packaging of SOCcerNET",
+  "module": "soccerNET.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielruss/soccerNETJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/danielruss/soccerNETJS/issues"
+  },
+  "homepage": "https://github.com/danielruss/soccerNETJS#readme",
+  "dependencies": {
+    "@danielruss/clips": "^0.0.9",
+    "@huggingface/transformers": "^3.5.0",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "onnxruntime-node": "^1.21.0",
+    "onnxruntime-web": "^1.21.0",
+    "papaparse": "^5.5.2",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  },
+  "devDependencies": {
+    "@rollup-extras/plugin-copy": "^1.11.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.40.1"
+  }
+}
