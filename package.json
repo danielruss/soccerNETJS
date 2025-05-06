@@ -1,8 +1,7 @@
 {
-  "name": "soccernetjs",
+  "name": "@danielruss/soccernet",
   "version": "1.0.0",
   "description": "used for NPM packaging of SOCcerNET",
-  "module": "soccerNET.js",
   "scripts": {
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +14,8 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "module": "dist/browser/soccerNET.js",
+  "main": "dist/node/soccerNET.js",
   "bugs": {
     "url": "https://github.com/danielruss/soccerNETJS/issues"
   },
