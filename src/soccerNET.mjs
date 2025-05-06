@@ -1,7 +1,8 @@
 import { device, ort, pipelineInit, embedData, Crosswalk, CodingSystem } from '@danielruss/clips';
 import { soccerConfig } from './config_soccer.mjs'
 import { abbrev } from './abbrev.mjs';
-
+export { getFileIterator, createOPFSWritableStream,writeResultsBlockToOPFS, 
+    closeOPFSStream,downloadResultsFromOPFS } from '@danielruss/clips'
 
 // note: this is the SOCcer version SOCcerNET 1 == SOCcer 3
 export async function configureSOCcerNet(version = "3.0.0") {
@@ -120,7 +121,7 @@ function cleanData(data) {
     }
 
     console.log(cleanedData)
-    
+
     // remove any any whitespace dashes and periods at the end of the job title or task
     // and replace any abbreviations in the job title and task
     cleanedData.JobTitle = cleanedData.JobTitle.map( (text) => preprocess_clean_text(text));
