@@ -120,8 +120,6 @@ function cleanData(data) {
         cleanedData['JobTask'] = new Array(cleanedData.length).fill('')
     }
 
-    console.log(cleanedData)
-
     // remove any any whitespace dashes and periods at the end of the job title or task
     // and replace any abbreviations in the job title and task
     cleanedData.JobTitle = cleanedData.JobTitle.map( (text) => preprocess_clean_text(text));
@@ -137,7 +135,6 @@ function cleanData(data) {
 }
 
 function onnxResultToArray(tensor) {
-    console.log(tensor)
     const [rows, cols] = tensor.dims;
     const data = Array.from(tensor.cpuData);
 
@@ -167,8 +164,6 @@ function topK(arr, k, codingSystem) {
 }
 
 function preprocess_clean_text(txt) {
-    console.log(txt)
-
     // remove any whitespace dashes and periods at the end of the job title or task    
     txt = txt.replaceAll(/^[\s\-\.]+|[\s\-\.]+$/g, "").toLowerCase();
     // replace any abbreviations in the job title and task
