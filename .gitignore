@@ -2,5 +2,6 @@ node_modules
 dist
 .vscode
 package-lock.json
+.DS_Store
 # Excel temp files
 ~*
