@@ -6,15 +6,15 @@ export { getFileIterator, createOPFSWritableStream,writeResultsBlockToOPFS,
 
 // note: this is the SOCcer version SOCcerNET 1 == SOCcer 3
 export async function configureSOCcerNet(version = "3.0.0") {
+    ort.env.wasm.wasmPaths = 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.21.0/dist/'
     let current_config = { ...soccerConfig[version] };
     current_config.device = device;
-    await pipelineInit(current_config)
+    await pipelineInit(current_config);
 
     // add the session to the current_config and return it...
-    let current_model = current_config.model_url;
-    current_model = await (await fetch(current_model)).arrayBuffer()
+    let current_model_url = current_config.model_url;
+    let current_model = await (await fetch(current_model_url)).arrayBuffer()
     current_config.session = await ort.InferenceSession.create(current_model, { executionProviders: [device] })
-
     return current_config
 }
 

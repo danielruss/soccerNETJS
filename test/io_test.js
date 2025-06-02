@@ -2,10 +2,9 @@ console.log(".. in test/io_test.js ..")
 
 import mocha from 'https://cdn.jsdelivr.net/npm/mocha@10.7.3/+esm'
 import { assert } from 'https://cdn.jsdelivr.net/npm/chai@5.1.1/+esm'
-//import { read_csv,read_excel } from 'https://cdn.jsdelivr.net/npm/@danielruss/clips/+esm'
-import { read_csv,read_excel } from 'https://cdn.jsdelivr.net/npm/@danielruss/clips/dist/browser/clips.js'
+import { read_csv,read_excel } from 'https://cdn.jsdelivr.net/npm/@danielruss/clips/+esm'
+//import { read_csv,read_excel } from 'https://cdn.jsdelivr.net/npm/@danielruss/clips/dist/browser/clips.js'
 import { configureSOCcerNet, runSOCcerPipeline } from '../dist/browser/soccerNET.js'
-
 mocha.setup('bdd')
 
 describe('Read Excel', function() {
@@ -30,11 +29,26 @@ describe('Read CSV', function() {
     })
 });
 
+describe('Configure SOCcerNET', function() {
+    it('should configure SOCcerNET', async function() {
+        try {            
+            let config = await configureSOCcerNet();
+            assert.isNotNull(config, "Config is not null")
+            assert.isNotNull(config.session, "Session is not null")
+            assert.equal(config.model_version, "3.0.0", "Model version should be 3.0.0")
+        } catch (error) {
+            console.error("Configuration failed:", error);
+            assert.fail("Configuration failed: " + error.message);
+        }
+    });
+});
+
 describe('Run SOCcerNET', function() {
     it('should match the toy version with GEMINI-01',async function(){
-        this.slow(2000)
+        this.slow(300000)
         let data={JobTitle:"Software Engineer", JobTask:"Develop and maintain software applications."};
         let config = await configureSOCcerNet("3.0.0");
+        console.log(".. in test/io_test.js ..")
         let results = await runSOCcerPipeline(data, config,{n:2});
         let expected = [
             {soc2010: ['15-1132', '15-1133'], score: [0.9806, 0.3603] },
@@ -43,7 +57,7 @@ describe('Run SOCcerNET', function() {
     })
 
     it('should match the Toy version with the dev file', async function(){
-        this.slow(10000)
+        this.slow(20000)
         const url = "../dev/gemini-jobs.csv";
         let csvBlob = await (await fetch(url)).blob() 
         let dta = await read_csv(csvBlob)
