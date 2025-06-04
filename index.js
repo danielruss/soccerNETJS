@@ -2,8 +2,9 @@
 // eslint-disable-next-line no-global-assign
 import fs from 'fs';
 import * as SOCcerNET from './dist/node/soccerNET.js';
-import { read_csv } from '@danielruss/clips'
+import { ort,read_csv } from '@danielruss/clips'
 
+console.log(ort)
 let config = await SOCcerNET.configureSOCcerNet()
 
 // this is node-specific..
