@@ -6,7 +6,6 @@ export { getFileIterator, createOPFSWritableStream,writeResultsBlockToOPFS,
 
 // note: this is the SOCcer version SOCcerNET 1 == SOCcer 3
 export async function configureSOCcerNet(version = "3.0.0") {
-    ort.env.wasm.wasmPaths = 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.21.0/dist/'
     let current_config = { ...soccerConfig[version] };
     current_config.device = device;
     await pipelineInit(current_config);
