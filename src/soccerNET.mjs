@@ -166,6 +166,6 @@ function preprocess_clean_text(txt) {
     // remove any whitespace dashes and periods at the end of the job title or task    
     txt = txt.replaceAll(/^[\s\-\.]+|[\s\-\.]+$/g, "").toLowerCase();
     // replace any abbreviations in the job title and task
-    return Object.hasOwn(abbrev,txt)? abbrev[txt] : txt
+    return Object.hasOwn(abbrev,txt) && !Array.isArray(abbrev[txt])? abbrev[txt] : txt
 
 }
