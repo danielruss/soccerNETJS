@@ -167,5 +167,4 @@ function preprocess_clean_text(txt) {
     txt = txt.replaceAll(/^[\s\-\.]+|[\s\-\.]+$/g, "").toLowerCase();
     // replace any abbreviations in the job title and task
     return Object.hasOwn(abbrev,txt) && !Array.isArray(abbrev[txt])? abbrev[txt] : txt
-
 }
