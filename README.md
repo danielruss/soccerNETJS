@@ -68,5 +68,5 @@ The results are:
 }]
 ```
 
-Take a look at  provide [a more complicated file upload/download version with progress]( https://danielruss.github.io/soccernet_example/) here is the [html](https://github.com/danielruss/soccernet_example/blob/main/index.html) and the (javascript)[https://github.com/danielruss/soccernet_example/blob/main/browser.js] that drives it.
+Take a look at  provide [a more complicated file upload/download version with progress]( https://danielruss.github.io/soccernet_example/) here is the [html](https://github.com/danielruss/soccernet_example/blob/main/index.html) and the [javascript](https://github.com/danielruss/soccernet_example/blob/main/browser.js) that drives it.
 
