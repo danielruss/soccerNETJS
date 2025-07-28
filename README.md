@@ -1,5 +1,5 @@
 
-![SOCcerNET](./soccerLogo1.png) 
+![SOCcerNET](./soccernetLogo1.svg) 
 
 SOCcerNET is an occupational autocoding classifier build on huggingface text emedding 
 model. 
