@@ -67,3 +67,6 @@ The results are:
     title:["Plumbers, Pipefitters, and Steamfitters","Construction Laborers","First-Line Supervisors of Construction Trades and Extraction Workers","Installation, Maintenance, and Repair Workers, All Other", "Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters","Maintenance and Repair Workers, General","Construction and Related Workers, All Other","Carpenters","Maids and Housekeeping Cleaners","Janitors and Cleaners, Except Maids and Housekeeping Cleaners"]
 }]
 ```
+
+Take a look at  provide [a more complicated file upload/download version with progress]( https://danielruss.github.io/soccernet_example/) here is the [html](https://github.com/danielruss/soccernet_example/blob/main/index.html) and the (javascript)[https://github.com/danielruss/soccernet_example/blob/main/browser.js] that drives it.
+
