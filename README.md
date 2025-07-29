@@ -19,7 +19,9 @@ import * as soccerNet from "https://cdn.jsdelivr.net/npm/@danielruss/soccernet@l
 ```
 or in the developers panel of the browser you can use: 
 
-`const soccerNet=import("https://cdn.jsdelivr.net/npm/@danielruss/soccernet@latest/+esm")`
+```
+const soccerNet=await import("https://cdn.jsdelivr.net/npm/@danielruss/soccernet@latest/+esm")
+```
 
 ### Running SOCcerNET
 In order to run SOCcerNET, you first must configure the version.  Under the hood, SOCcerNET is SOCcer v3, so to configure with version 3.0.0.
