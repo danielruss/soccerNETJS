@@ -17,11 +17,6 @@ npm install @danielruss/soccernet
 import * as soccerNet from "https://cdn.jsdelivr.net/npm/@danielruss/soccernet@latest/+esm"
 </script>
 ```
-or in the developers panel of the browser you can use: 
-
-```
-const soccerNet=await import("https://cdn.jsdelivr.net/npm/@danielruss/soccernet@latest/+esm")
-```
 
 ### Running SOCcerNET
 In order to run SOCcerNET, you first must configure the version.  Under the hood, SOCcerNET is SOCcer v3, so to configure with version 3.0.0.
@@ -46,8 +41,7 @@ After configuration, the job descriptions can be coded.  SOCcerNET expect an inp
 The results are an array where each entries is a job description.  Since there is only 1 job in the example there is only one job in the results. An id will be added because in this example one is not given. 
 
 ```
-<script>
-import * as soccerNet from "https://cdn.jsdelivr.net/npm/@danielruss/soccernet@latest/+esm"
+const soccerNet=await import("https://cdn.jsdelivr.net/npm/@danielruss/soccernet@latest/+esm")
 
 const inputObject = {
     JobTitle: "plumber",
@@ -58,6 +52,20 @@ const inputObject = {
 let config = await soccerNet.configureSOCcerNet();
 let results = await soccerNet.runSOCcerPipeline(inputObject,config)
 </script>
+```
+
+If you are interested in running this in the developers panel, you can use dynamic imports.  Keep in mind that the first time you run this the embedding model is downloaded and cached.  This will take some time.  After that, it will be almost instantaneous.
+```
+import * as soccerNet from "https://cdn.jsdelivr.net/npm/@danielruss/soccernet@latest/+esm"
+
+const inputObject = {
+    JobTitle: "plumber",
+    JobTask: "fix leaks in homes",
+    soc1980: "645"
+}
+
+let config = await soccerNet.configureSOCcerNet();
+let results = await soccerNet.runSOCcerPipeline(inputObject,config)
 ```
 
 
