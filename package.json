@@ -1,6 +1,6 @@
 {
   "name": "@danielruss/soccernet",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "used for NPM packaging of SOCcerNET",
   "scripts": {
     "build": "rollup -c",
