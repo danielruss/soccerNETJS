@@ -28,7 +28,7 @@ export async function runSOCcerPipeline(input_data, current_config, { n = 10 } =
         soccer_model: current_config.model_version,
         soccer_model_url: current_config.model_url,
         coding_system: "soc2010",
-        name: "soccer"
+        name: "SOCcerNET"
     }
 
     // Step 1. preprocess the data
