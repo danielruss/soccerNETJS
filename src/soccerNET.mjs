@@ -25,8 +25,10 @@ export async function runSOCcerPipeline(input_data, current_config, { n = 10 } =
     let metadata = {
         start_time: new Date().toLocaleString(),
         embedding_model: current_config.model,
-        clips_model: current_config.model_version,
-        coding_system: "soc2010"
+        soccer_model: current_config.model_version,
+        soccer_model_url: current_config.model_url,
+        coding_system: "soc2010",
+        name: "soccer"
     }
 
     // Step 1. preprocess the data
