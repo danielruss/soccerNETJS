@@ -3,7 +3,6 @@ console.log(".. in test/io_test.js ..")
 import mocha from 'https://cdn.jsdelivr.net/npm/mocha@10.7.3/+esm'
 import { assert } from 'https://cdn.jsdelivr.net/npm/chai@5.1.1/+esm'
 import { read_csv,read_excel } from 'https://cdn.jsdelivr.net/npm/@danielruss/clips/+esm'
-//import { read_csv,read_excel } from 'https://cdn.jsdelivr.net/npm/@danielruss/clips/dist/browser/clips.js'
 import { configureSOCcerNet, runSOCcerPipeline } from '../dist/browser/soccerNET.js'
 mocha.setup('bdd')
 
@@ -31,6 +30,7 @@ describe('Read CSV', function() {
 
 describe('Configure SOCcerNET', function() {
     it('should configure SOCcerNET', async function() {
+        this.slow(300000)
         try {            
             let config = await configureSOCcerNet();
             assert.isNotNull(config, "Config is not null")

@@ -5,14 +5,40 @@ export { getFileIterator, createOPFSWritableStream,writeResultsBlockToOPFS,
     closeOPFSStream,downloadResultsFromOPFS } from '@danielruss/clips'
 
 // note: this is the SOCcer version SOCcerNET 1 == SOCcer 3
-export async function configureSOCcerNet(version = "3.0.0") {
+export async function configureSOCcerNet(version = "3.0.0", options = {}) {
+    const IS_NODE_ENV = typeof process !== 'undefined' && process?.release?.name === 'node';
+
     let current_config = { ...soccerConfig[version] };
     current_config.device = device;
+    
+    if (options.model_url) {
+        current_config.model_url = options.model_url;
+    }
     await pipelineInit(current_config);
-
+    
     // add the session to the current_config and return it...
     let current_model_url = current_config.model_url;
-    let current_model = await (await fetch(current_model_url)).arrayBuffer()
+    console.log("... in config ",current_model_url);
+
+    let current_model;
+    if (IS_NODE_ENV && !current_model_url.startsWith('http://') && !current_model_url.startsWith('https://')) {
+        try {
+            console.log(`loading model file: ${current_model_url}`);
+            const fs = await import('fs/promises');
+            current_model = await fs.readFile(current_model_url);
+            current_model = Uint8Array.from(current_model).buffer;
+        } catch (e) {
+            // Fallback to fetch if file read fails
+            console.log(`fetching model url: ${current_model_url}`);
+            current_model = await (await fetch(current_model_url)).arrayBuffer();
+        }
+    } else {
+        // Browser or remote URL
+        console.log(`fetching model url: ${current_model_url}`);
+        current_model = await (await fetch(current_model_url)).arrayBuffer();
+    }
+
+
     current_config.session = await ort.InferenceSession.create(current_model, { executionProviders: [device] })
     return current_config
 }
