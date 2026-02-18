@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/danielruss/soccerNETJS#readme",
   "dependencies": {
-    "@danielruss/clips": "^0.0.12",
+    "@danielruss/clips": "^0.0.13",
     "@huggingface/transformers": "^3.5.0",
     "@rollup/plugin-commonjs": "^28.0.3",
     "onnxruntime-node": "^1.21.0",
@@ -34,7 +34,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
     "chai": "^6.2.2",
-    "mocha": "^11.7.5",
+    "mocha": "^11.3.0",
     "rollup": "^4.40.1"
   }
 }
